@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:recipe_app/config/app_config.dart';
 import 'package:recipe_app/config/routes.dart';
 import 'package:recipe_app/gen/assets.gen.dart';
+import 'package:recipe_app/utils/shared_prefs.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,8 +17,19 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: AppConfig.splashDuration), () {
-      Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+      checkFirstSeen();
     });
+  }
+
+  Future<void> checkFirstSeen() async {
+    bool isFirstTime = await SharedPrefs.isFirstTime();
+
+    if (mounted) {
+      Navigator.pushReplacementNamed(
+        context,
+        isFirstTime ? AppRoutes.onboarding : AppRoutes.home,
+      );
+    }
   }
 
   @override

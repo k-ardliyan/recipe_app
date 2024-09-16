@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/screens/home_screen.dart';
 import 'package:recipe_app/screens/splash_screen.dart';
 import 'package:recipe_app/screens/onboarding_screen.dart';
 
@@ -13,5 +14,6 @@ class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => const SplashScreen(),
     onboarding: (context) => const OnboardingScreen(),
+    home: (context) => const HomeScreen(),
   };
 }
