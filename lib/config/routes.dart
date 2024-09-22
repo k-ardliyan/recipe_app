@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/home_screen.dart';
+import 'package:recipe_app/screens/recipe_detail_screen.dart';
 import 'package:recipe_app/screens/splash_screen.dart';
 import 'package:recipe_app/screens/onboarding_screen.dart';
 
@@ -15,5 +16,6 @@ class AppRoutes {
     splash: (context) => const SplashScreen(),
     onboarding: (context) => const OnboardingScreen(),
     home: (context) => const HomeScreen(),
+    recipeDetail: (context) => const RecipeDetailScreen(),
   };
 }

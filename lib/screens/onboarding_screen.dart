@@ -31,26 +31,28 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               padding: const EdgeInsets.all(24.0),
               child: Align(
                 alignment: Alignment.topRight,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey[100],
-                    foregroundColor: Colors.grey[400],
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 8,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: onGetStartedPressed,
-                  child: Text(
-                    "Skip",
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                    ),
-                  ),
-                ),
+                child: _currentPage == onboardingContents.length - 1
+                    ? const SizedBox.shrink()
+                    : TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.grey[100],
+                          foregroundColor: Colors.grey[400],
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 18,
+                            vertical: 8,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: onGetStartedPressed,
+                        child: Text(
+                          "Skip",
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                          ),
+                        ),
+                      ),
               ),
             ),
             Expanded(
